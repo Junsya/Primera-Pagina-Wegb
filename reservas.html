@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programa de reservas de hotel</title>
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+<nav>
+		<ul>
+			<li><a href="especificando color.html">Inicio</a></li>
+			<li><a href="inicio.html">Habitaciones</a></li>
+			<li><a href="reservas.html">Reservas</a></li>
+			<li><a href="TIRAR.html">Contacto</a></li>
+		</ul>
+	</nav>
+<body>
+	<h1>Reserva de habitaciones</h1>
+	<form>
+		<label for="fecha_inicio">Fecha de entrada:</label>
+		<input type="date" id="fecha_inicio" name="fecha_inicio">
+		<label for="fecha_fin">Fecha de salida:</label>
+		<input type="date" id="fecha_fin" name="fecha_fin">
+		<button type="button" onclick="buscarHabitacionesDisponibles()">Buscar habitaciones disponibles</button>
+	<table>
+			<h2>Disponibilidad de habitaciones:</h2>
+		<tr>
+			<th>Número de habitación</th>
+			<th>Tipo</th>
+			<th>Precio por noche</th>
+			<th>Disponibilidad</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Individual</td>
+			<td>$100</td>
+			<td>Libre</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Individual</td>
+			<td>$100</td>
+			<td>Ocupada</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Doble</td>
+			<td>$200</td>
+			<td>Libre</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Doble</td>
+			<td>$300</td>
+			<td>Libre</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Triple</td>
+			<td>$500</td>
+			<td>Libre</td>
+		</tr>
+	</table>
+		<label for="habitacion"></label>
+		<input type="text" id="habitacion" name="habitacion"><br>
+		<div id="habitaciones_disponibles"></div>
+		<form>
+		<script>
+		var habitaciones = [
+		    {numero: 1, disponibilidad: true, precio: 100},
+		    {numero: 2, disponibilidad: false, precio: 150},
+		    {numero: 3, disponibilidad: true, precio: 200},
+		    {numero: 4, disponibilidad: true, precio: 300},
+		    {numero: 5, disponibilidad: true, precio: 500},
+		];
+
+		function buscarHabitacionesDisponibles() {
+			var fecha_inicio = document.getElementById('fecha_inicio').value;
+			var fecha_fin = document.getElementById('fecha_fin').value;
+			var habitaciones_disponibles = [];
+			for (var i = 0; i < habitaciones.length; i++) {
+				if (habitaciones[i].disponibilidad) {
+					habitaciones_disponibles.push(habitaciones[i]);
+				}
+				document.getElementById('habitaciones_disponibles').innerHTML = '';
+				for (var j = 0; j < habitaciones_disponibles.length; j++) {
+					var habitacion = habitaciones_disponibles[j];
+					var habitacion_html = '<p>Habitación ' + habitacion.numero + ': ' + habitacion.precio + ' por noche <button onclick="reservarHabitacion(' + habitacion.numero + ')">Reservar</button></p>';
+					document.getElementById('habitaciones_disponibles').innerHTML += habitacion_html;
+				}
+			}
+		}
+
+		function reservarHabitacion(numero_habitacion) {
+			for (var i = 0; i < habitaciones.length; i++) {
+				if (habitaciones[i].numero === numero_habitacion) {
+					habitaciones[i].disponibilidad = false;
+					alert('Se ha reservado la habitación ' + habitaciones[i].numero + ' por ' + habitaciones[i].precio + ' por noche.');
+					break;
+				}
+			}
+		}
+	</script>
+	</form>
+</body>
+</html>

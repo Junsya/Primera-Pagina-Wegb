@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<meta charset="UTF-8">
+	<title>Habitaciones de Reservas Hotel RamiRez</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+		<ul>
+			<li><a href="especificando color.html">Inicio</a></li>
+			<li><a href="inicio.html">Habitaciones</a></li>
+			<li><a href="reservas.html">Reservas</a></li>
+			<li><a href="TIRAR.html">Contacto</a></li>
+		</ul>
+	</nav>
+
+	<header>
+		<h1>Habitaciones de Reservas Hotel RAMIREZ</h1></p>
+	</header>
+	
+	<main>
+		<section>
+			<h2>Seleccione las fechas de su estancia</h2>
+			<form>
+				<label for="fecha_llegada">Fecha de llegada:</label>
+				<input type="date" id="fecha_llegada" name="fecha_llegada">
+				<label for="fecha_salida">Fecha de salida:</label>
+				<input type="date" id="fecha_salida" name="fecha_salida">
+				<button type="submit">Buscar habitaciones</button>
+			</form>
+		</section>
+		
+		<section>
+			<h2>Resultados de la búsqueda</h2>
+			<ul>
+				<li>
+					<h1>Habitación individual Estándar</h1>
+					<img src="habitacion1.jpg"width="70%" height="40%"alt="Habitación Doble Estándar">
+					<h2><p>Precio por noche: $100</p></h2>
+					<button>Reservar</button>
+				</li>
+				<li>
+					<h1 align="justify">Habitación Doble Superior</h1>
+					<img src="habitacion2.jpg"width="80%" height="40%" alt="Habitación Doble Superior">
+					<h2><p>Precio por noche: $150</p></h2>
+					<button>Reservar</button>
+                   	</li>
+
+					<li>
+					<h1>Suite Presidencial</h1>
+					<img src="habitacion3.jpg"width="70%" height="40%" alt="Suite Presidencial">
+					<h2><p>Precio por noche: $500</p></h2>
+					<button>Reservar</button>
+				</li>
+			</ul>
+		</section>
+		
+		<section>
+			<h2>Formulario de reserva</h2>
+			<form>
+				<label for="nombre">Nombre:</label>
+				<input type="text" id="nombre" name="nombre" required>
+				<label for="apellido">Apellido:</label>
+				<input type="text" id="apellido" name="apellido" required>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+				<label for="habitacion">Tipo de habitación:</label>
+				<select id="habitacion" name="habitacion">
+					<option value="doble_estandar">Habitación Doble Estándar</option>
+					<option value="doble_superior">Habitación Doble Superior</option>
+					<option value="suite_presidencial">Suite Presidencial</option>
+				</select>
+				<label for="comentarios">Comentarios adicionales:</label>
+				<textarea id="comentarios" name="comentarios"></textarea>
+				<form action="Confirmar reserva"method="get">
+				<a href="reservas.html">Confirmar reserva</a>
+			</form>
+		</section>
+	</main>
+	
+	<footer>
+		<p>Derechos reservados Hotel RAMIREZ</p>
+	</footer>
+</body>
+</html>
